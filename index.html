@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Calculadora Científica" role="application">
+      <section class="calculator" aria-labelledby="titulo">
+        <header class="header">
+          <h1 id="titulo">Calculadora Científica</h1>
+          <h2 id="info" class="grande" title="Info sobre el número">Info sobre el número</h2>
+        </header>
+
+        <section class="displays">
+          <input
+            id="display"
+            class="display"
+            type="text"
+            inputmode="decimal"
+            autocomplete="off"
+            aria-label="Entrada principal"
+          />
+          <div class="secondary-inputs">
+            <input
+              id="exp-input"
+              class="secondary"
+              type="text"
+              inputmode="decimal"
+              placeholder="Exponente n"
+              aria-label="Exponente para potencia"
+            />
+            <input
+              id="remove-value"
+              class="secondary"
+              type="text"
+              inputmode="decimal"
+              placeholder="Valor a quitar (CSV)"
+              aria-label="Valor específico a quitar de CSV"
+            />
+          </div>
+          <input
+            id="csv-input"
+            class="csv"
+            type="text"
+            placeholder="Valores CSV: 1,2,3,4"
+            aria-label="Entrada de valores separados por comas"
+          />
+        </section>
+
+        <section class="keypad" aria-label="Teclado de la calculadora">
+          <div class="row">
+            <button id="clear" class="key key-func" data-action="clear" aria-keyshortcuts="Escape">C</button>
+            <button id="backspace" class="key key-func" data-action="backspace" aria-keyshortcuts="Backspace">⌫</button>
+            <button id="modulo" class="key key-op" data-action="modulo">±</button>
+            <button id="factorial" class="key key-op" data-action="factorial">n!</button>
+          </div>
+          <div class="row">
+            <button class="key" data-digit="7" aria-keyshortcuts="7">7</button>
+            <button class="key" data-digit="8" aria-keyshortcuts="8">8</button>
+            <button class="key" data-digit="9" aria-keyshortcuts="9">9</button>
+            <button id="suma" class="key key-bin" data-op="suma" aria-keyshortcuts="+">+</button>
+          </div>
+          <div class="row">
+            <button class="key" data-digit="4" aria-keyshortcuts="4">4</button>
+            <button class="key" data-digit="5" aria-keyshortcuts="5">5</button>
+            <button class="key" data-digit="6" aria-keyshortcuts="6">6</button>
+            <button id="multiplicacion" class="key key-bin" data-op="multiplicacion" aria-keyshortcuts="*">×</button>
+          </div>
+          <div class="row">
+            <button class="key" data-digit="1" aria-keyshortcuts="1">1</button>
+            <button class="key" data-digit="2" aria-keyshortcuts="2">2</button>
+            <button class="key" data-digit="3" aria-keyshortcuts="3">3</button>
+            <button id="igual" class="key key-eq" data-action="igual" aria-keyshortcuts="Enter">=</button>
+          </div>
+          <div class="row">
+            <button class="key" data-digit="0" aria-keyshortcuts="0">0</button>
+            <button class="key" data-digit="." aria-keyshortcuts="," role="button">.</button>
+            <button id="cuadrado" class="key key-op" data-action="cuadrado">x²</button>
+            <button id="cubo" class="key key-op" data-action="cubo">x³</button>
+          </div>
+          <div class="row">
+            <button id="sqrt" class="key key-op" data-action="sqrt">√x</button>
+            <button id="pow-n" class="key key-op" data-action="pow-n">xⁿ</button>
+            <button id="media" class="key key-csv" data-action="media">media(csv)</button>
+            <button id="sumatorio" class="key key-csv" data-action="sumatorio">sum(csv)</button>
+          </div>
+          <div class="row">
+            <button id="ordenar" class="key key-csv" data-action="ordenar">ordenar(csv)</button>
+            <button id="revertir" class="key key-csv" data-action="revertir">revertir(csv)</button>
+            <button id="quitar" class="key key-csv" data-action="quitar">quitar último</button>
+            <button id="quitar-especifico" class="key key-csv" data-action="quitar-especifico">quitar valor</button>
+          </div>
+        </section>
+
+        <section class="plot" aria-label="Gráficos">
+          <div class="plot-toolbar">
+            <label for="plot-select">Función:</label>
+            <select id="plot-select" aria-label="Seleccionar función a graficar">
+              <option value="csv">CSV</option>
+              <option value="sin">sin(x)</option>
+              <option value="cos">cos(x)</option>
+              <option value="x2">x^2</option>
+            </select>
+            <button id="plot-btn" class="key key-plot">Graficar</button>
+            <button id="download-logs" class="key key-func">Descargar logs</button>
+          </div>
+          <canvas id="chart" width="480" height="280" role="img" aria-label="Lienzo de gráficos"></canvas>
+        </section>
+      </section>
+
+      <div id="loader" class="loader" aria-hidden="true" aria-live="polite">Procesando…</div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
+
