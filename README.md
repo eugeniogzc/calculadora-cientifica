@@ -1,4 +1,8 @@
-# Calculadora Científica (Web)
+# Eugenio Garza: Calculadora Científica (Web)
+
+Repositorio:
+
+https://github.com/eugeniogzc/calculadora-cientifica
 
 Breve descripción de funcionalidades implementadas:
 
